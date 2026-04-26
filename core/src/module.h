@@ -39,6 +39,7 @@ public:
         virtual void enable() = 0;
         virtual void disable() = 0;
         virtual bool isEnabled() = 0;
+        virtual void lateInit() {};
         virtual void *getInterface(const char *name) {
             return nullptr;
         }
@@ -133,6 +134,7 @@ public:
     }
 
     void doPostInitAll();
+    void doLateInitAll();
 
     Event<std::string> onInstanceCreated;
     Event<std::string> onInstanceDelete;

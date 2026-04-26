@@ -246,6 +246,7 @@ void MainWindow::init() {
     initComplete = true;
 
     core::moduleManager.doPostInitAll();
+    core::moduleManager.doLateInitAll();
 }
 
 float* MainWindow::acquireFFTBuffer(void* ctx) {

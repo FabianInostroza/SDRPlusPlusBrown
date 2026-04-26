@@ -81,11 +81,18 @@ public:
 
     void postInit() override {
         config.acquire();
-        std::string selList = config.conf["selectedList"];
         bookmarkDisplayMode = config.conf["bookmarkDisplayMode"];
         config.release();
 
         refreshLists();
+    }
+
+    void lateInit() override {
+        config.acquire();
+        std::string selList = config.conf["selectedList"];
+        config.release();
+
+        //refreshLists();
         loadByName(selList);
         refreshWaterfallBookmarks(true);
     }

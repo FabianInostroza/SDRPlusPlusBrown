@@ -256,3 +256,10 @@ void ModuleManager::doPostInitAll() {
         inst.instance->postInit();
     }
 }
+
+void ModuleManager::doLateInitAll() {
+    for (auto& [name, inst] : instances) {
+        flog::info("Running late-init for {0}", name);
+        inst.instance->lateInit();
+    }
+}
